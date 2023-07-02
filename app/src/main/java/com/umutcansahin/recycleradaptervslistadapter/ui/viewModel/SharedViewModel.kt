@@ -13,7 +13,11 @@ class SharedViewModel : ViewModel() {
     private val list = ArrayList<DataNumber>()
     private var number = 0
 
-    fun getList() {
+    init {
+        getList()
+    }
+
+    private fun getList() {
         for (id in 1..200) {
             number += 2
             list.add(DataNumber(id = id, number = number))
@@ -23,7 +27,7 @@ class SharedViewModel : ViewModel() {
 
     fun addNewItem() {
         for (id in 201..300) {
-            number += 1_000
+            number += 3
             list.add(DataNumber(id = id, number = number))
         }
         _state.value = list

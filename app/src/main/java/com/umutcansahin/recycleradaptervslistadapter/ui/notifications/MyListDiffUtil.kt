@@ -5,7 +5,7 @@ import com.umutcansahin.recycleradaptervslistadapter.data.DataNumber
 
 class MyListDiffUtil : DiffUtil.ItemCallback<DataNumber>() {
     override fun areItemsTheSame(oldItem: DataNumber, newItem: DataNumber): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem == newItem
     }
 
     override fun areContentsTheSame(oldItem: DataNumber, newItem: DataNumber): Boolean {

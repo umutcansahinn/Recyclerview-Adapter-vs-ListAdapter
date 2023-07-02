@@ -31,7 +31,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getList()
         binding.recyclerView.adapter = adapter
         viewModel.state.observe(viewLifecycleOwner) { list ->
             adapter.updateList(list)

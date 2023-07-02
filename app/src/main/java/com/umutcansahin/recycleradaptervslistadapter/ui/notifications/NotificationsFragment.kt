@@ -1,5 +1,6 @@
 package com.umutcansahin.recycleradaptervslistadapter.ui.notifications
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,13 +30,13 @@ class NotificationsFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getList()
         binding.recyclerView.adapter = adapter
         viewModel.state.observe(viewLifecycleOwner) { list ->
             adapter.submitList(list)
-           // adapter.notifyDataSetChanged()
+            adapter.notifyDataSetChanged()
         }
         binding.buttonAdd.setOnClickListener {
             viewModel.addNewItem()
